@@ -1,0 +1,254 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>ShowBooks</class>
+ <widget class="QWidget" name="ShowBooks">
+  <property name="geometry">
+   <rect><x>0</x><y>0</y><width>1250</width><height>780</height></rect>
+  </property>
+  <property name="minimumSize">
+   <size><width>950</width><height>600</height></size>
+  </property>
+  <property name="windowTitle">
+   <string>Book Manager v1 — Show Books</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">QWidget#ShowBooks {
+    background-color: #171f33;
+    color: #dce6ff;
+    font-family: "Segoe UI";
+    font-size: 10pt;
+}
+QLabel#lbl_title { color: #dce6ff; padding: 3px 0; }
+QLabel#lbl_subtitle, QLabel#lbl_count, QLabel#lbl_page { color: #aebfe7; }
+QWidget#line_header { background-color: #52658d; }
+QGroupBox#gb_search_filter {
+    border: 1px solid #344568;
+    border-radius: 9px;
+    margin-top: 8px;
+    padding-top: 8px;
+    color: #c8d7fa;
+    font-weight: bold;
+}
+QGroupBox#gb_search_filter::title {
+    subcontrol-origin: margin;
+    left: 14px;
+    padding: 0 5px;
+}
+QLineEdit, QComboBox {
+    background-color: #263451;
+    border: 1px solid #40547b;
+    border-radius: 6px;
+    padding: 7px 10px;
+    color: #e1e9ff;
+    selection-background-color: #477cff;
+}
+QLineEdit:focus, QComboBox:focus { border: 1px solid #6c98ff; }
+QComboBox QAbstractItemView {
+    background-color: #263451;
+    color: #e1e9ff;
+    selection-background-color: #477cff;
+    border: 1px solid #40547b;
+}
+QPushButton {
+    background-color: #263451;
+    color: #e1e9ff;
+    border: 1px solid #344568;
+    border-radius: 7px;
+    padding: 8px 14px;
+}
+QPushButton:hover { background-color: #344568; }
+QPushButton:pressed { background-color: #1e2a43; }
+QPushButton:disabled { color: #68799d; background-color: #202b42; }
+QPushButton#btn_search {
+    background-color: #477cff;
+    border: 1px solid #477cff;
+    color: white;
+    font-weight: bold;
+}
+QPushButton#btn_search:hover { background-color: #5d8cff; }
+QTableWidget#table_books {
+    background-color: #171f33;
+    alternate-background-color: #1b2740;
+    color: #dce6ff;
+    border: 1px solid #344568;
+    border-radius: 8px;
+    selection-background-color: #344c7c;
+    selection-color: white;
+    outline: 0;
+}
+QTableWidget#table_books::item {
+    padding: 7px;
+    border-bottom: 1px solid #293956;
+}
+QHeaderView::section {
+    background-color: #263451;
+    color: #c8d7fa;
+    border: none;
+    border-bottom: 1px solid #40547b;
+    padding: 12px 8px;
+    font-weight: bold;
+}</string>
+  </property>
+  <layout class="QVBoxLayout" name="central_layout">
+   <property name="leftMargin"><number>22</number></property>
+   <property name="topMargin"><number>18</number></property>
+   <property name="rightMargin"><number>22</number></property>
+   <property name="bottomMargin"><number>18</number></property>
+   <property name="spacing"><number>16</number></property>
+   <item>
+    <layout class="QHBoxLayout" name="header_layout">
+     <item>
+      <widget class="QLabel" name="lbl_title">
+       <property name="font">
+        <font><family>Segoe UI</family><pointsize>23</pointsize><bold>true</bold></font>
+       </property>
+       <property name="text"><string>📖  Show Books</string></property>
+      </widget>
+     </item>
+     <item><spacer name="header_spacer">
+      <property name="orientation"><enum>Qt::Horizontal</enum></property>
+      <property name="sizeHint" stdset="0"><size><width>40</width><height>20</height></size></property>
+     </spacer></item>
+     <item>
+      <widget class="QLabel" name="lbl_subtitle">
+       <property name="text"><string>Manage your books, grow your mind</string></property>
+       <property name="alignment"><set>Qt::AlignRight|Qt::AlignVCenter</set></property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+   <item>
+    <widget class="QWidget" name="line_header" native="true">
+     <property name="minimumSize"><size><width>0</width><height>1</height></size></property>
+     <property name="maximumSize"><size><width>16777215</width><height>1</height></size></property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QGroupBox" name="gb_search_filter">
+     <property name="title"><string>Search &amp; Filter</string></property>
+     <layout class="QVBoxLayout" name="filter_layout">
+      <property name="leftMargin"><number>14</number></property>
+      <property name="topMargin"><number>18</number></property>
+      <property name="rightMargin"><number>14</number></property>
+      <property name="bottomMargin"><number>14</number></property>
+      <property name="spacing"><number>12</number></property>
+      <item>
+       <layout class="QHBoxLayout" name="search_row">
+        <property name="spacing"><number>12</number></property>
+        <item>
+         <widget class="QLineEdit" name="le_search">
+          <property name="minimumSize"><size><width>0</width><height>42</height></size></property>
+          <property name="placeholderText"><string>Search by title or author...</string></property>
+          <property name="clearButtonEnabled"><bool>true</bool></property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="btn_search">
+          <property name="minimumSize"><size><width>125</width><height>42</height></size></property>
+          <property name="text"><string>⌕  Search</string></property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="btn_refresh">
+          <property name="minimumSize"><size><width>125</width><height>42</height></size></property>
+          <property name="text"><string>⟳  Refresh</string></property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+      <item>
+       <layout class="QGridLayout" name="controls_row">
+        <property name="horizontalSpacing"><number>12</number></property>
+        <property name="verticalSpacing"><number>8</number></property>
+        <item row="0" column="0">
+         <widget class="QLabel" name="lbl_filter_status">
+          <property name="text"><string>Filter by status:</string></property>
+         </widget>
+        </item>
+        <item row="0" column="1">
+         <widget class="QComboBox" name="cb_filter_status">
+          <property name="minimumSize"><size><width>0</width><height>40</height></size></property>
+          <item><property name="text"><string>All Books</string></property></item>
+          <item><property name="text"><string>Unread</string></property></item>
+          <item><property name="text"><string>Reading</string></property></item>
+          <item><property name="text"><string>Finished</string></property></item>
+         </widget>
+        </item>
+        <item row="0" column="2">
+         <widget class="QLabel" name="lbl_sort_books">
+          <property name="text"><string>Sort by:</string></property>
+         </widget>
+        </item>
+        <item row="0" column="3">
+         <widget class="QComboBox" name="cb_sort_books">
+          <property name="minimumSize"><size><width>0</width><height>40</height></size></property>
+          <item><property name="text"><string>ID (Ascending)</string></property></item>
+          <item><property name="text"><string>ID (Descending)</string></property></item>
+          <item><property name="text"><string>Title (A–Z)</string></property></item>
+          <item><property name="text"><string>Title (Z–A)</string></property></item>
+          <item><property name="text"><string>Pages (Ascending)</string></property></item>
+          <item><property name="text"><string>Pages (Descending)</string></property></item>
+         </widget>
+        </item>
+       </layout>
+      </item>
+     </layout>
+    </widget>
+   </item>
+   <item>
+    <widget class="QTableWidget" name="table_books">
+     <property name="alternatingRowColors"><bool>true</bool></property>
+     <property name="showGrid"><bool>false</bool></property>
+     <property name="selectionBehavior"><enum>QAbstractItemView::SelectRows</enum></property>
+     <property name="selectionMode"><enum>QAbstractItemView::SingleSelection</enum></property>
+     <property name="editTriggers"><set>QAbstractItemView::NoEditTriggers</set></property>
+     <column><property name="text"><string>ID</string></property></column>
+     <column><property name="text"><string>Title</string></property></column>
+     <column><property name="text"><string>Author</string></property></column>
+     <column><property name="text"><string>Genre</string></property></column>
+     <column><property name="text"><string>Pages</string></property></column>
+     <column><property name="text"><string>Current Page</string></property></column>
+     <column><property name="text"><string>Status</string></property></column>
+    </widget>
+   </item>
+   <item>
+    <layout class="QHBoxLayout" name="footer_layout">
+     <item>
+      <widget class="QLabel" name="lbl_count">
+       <property name="text"><string>Showing 0 books</string></property>
+      </widget>
+     </item>
+     <item><spacer name="footer_spacer">
+      <property name="orientation"><enum>Qt::Horizontal</enum></property>
+      <property name="sizeHint" stdset="0"><size><width>40</width><height>20</height></size></property>
+     </spacer></item>
+     <item>
+      <widget class="QPushButton" name="btn_prev_page">
+       <property name="enabled"><bool>false</bool></property>
+       <property name="minimumSize"><size><width>42</width><height>40</height></size></property>
+       <property name="maximumSize"><size><width>42</width><height>40</height></size></property>
+       <property name="text"><string>‹</string></property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLabel" name="lbl_page">
+       <property name="minimumSize"><size><width>54</width><height>0</height></size></property>
+       <property name="text"><string>1 / 1</string></property>
+       <property name="alignment"><set>Qt::AlignCenter</set></property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="btn_next_page">
+       <property name="enabled"><bool>false</bool></property>
+       <property name="minimumSize"><size><width>42</width><height>40</height></size></property>
+       <property name="maximumSize"><size><width>42</width><height>40</height></size></property>
+       <property name="text"><string>›</string></property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
