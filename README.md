@@ -10,6 +10,20 @@ The application provides a graphical user interface for adding, viewing, editing
 
 Book information is stored locally in JSON format.
 
+## Screenshots
+
+### Dashboard
+![Dashboard](screenshots/dash.JPG)
+
+### Main Interface
+![Main Interface](screenshots/main.JPG)
+
+### Book Management
+![Book Management](screenshots/k.JPG)
+
+### Add Book
+![Add Book](screenshots/add.JPG)
+
 ## ✨ Features
 
 - **Add Books:** Add books with title, author, page count, and genre.
